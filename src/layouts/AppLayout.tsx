@@ -1,5 +1,5 @@
 import { Outlet } from "react-router-dom";
-import { AppSidebar } from "../components/AppSidebar";
+import { AppSidebar } from "../components/common/AppSidebar";
 import { Button } from "../components/ui/button";
 import { ThemeToggler } from "../components/ui/theme-toggler";
 import { Bell, User } from "lucide-react";
