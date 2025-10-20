@@ -5,6 +5,8 @@ import KeuanganDashboard from "./pages/keuangan/dashboard";
 import KeuanganTransaksi from "./pages/keuangan/transaksi";
 import KeuanganTagihan from "./pages/keuangan/tagihan";
 import KeuanganLaporan from "./pages/keuangan/laporan";
+import DataSiswa from "./pages/siswa/data";
+import DetailSiswa from "./pages/siswa/detail";
 
 const router = createBrowserRouter([
   {
@@ -36,14 +38,19 @@ const router = createBrowserRouter([
           },
         ],
       },
-      // Placeholder untuk modul lain
+      // Modul Siswa
       {
-        path: "siswa/*",
-        element: (
-          <div className="p-6">
-            <h1 className="text-2xl font-bold">Modul Siswa - Coming Soon</h1>
-          </div>
-        ),
+        path: "siswa",
+        children: [
+          {
+            path: "data",
+            element: <DataSiswa />,
+          },
+          {
+            path: "detail/:id",
+            element: <DetailSiswa />,
+          },
+        ],
       },
       {
         path: "staff/*",

@@ -6,66 +6,88 @@
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 240 10% 3.9%;
-    --card: 0 0% 100%;
-    --card-foreground: 240 10% 3.9%;
+    /* Main Background & Text - Light Mode */
+    --background: 0 0% 96.1%; /* #F5F5F5 */
+    --foreground: 222.2 47.4% 11.2%; /* #111827 */
+    
+    /* Card & Panels */
+    --card: 0 0% 100%; /* #FFFFFF */
+    --card-foreground: 222.2 47.4% 11.2%;
+    
     --popover: 0 0% 100%;
-    --popover-foreground: 240 10% 3.9%;
+    --popover-foreground: 222.2 47.4% 11.2%;
+    
     --primary: 240 5.9% 10%;
     --primary-foreground: 0 0% 98%;
+    
     --secondary: 240 4.8% 95.9%;
     --secondary-foreground: 240 5.9% 10%;
+    
     --muted: 240 4.8% 95.9%;
     --muted-foreground: 240 3.8% 46.1%;
+    
     --accent: 240 4.8% 95.9%;
     --accent-foreground: 240 5.9% 10%;
+    
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 98%;
+    
     --border: 240 5.9% 90%;
     --input: 240 5.9% 90%;
     --ring: 240 5.9% 10%;
     --radius: 0.5rem;
 
-    --sidebar: 0 0% 98%;
-    --sidebar-foreground: 240 5.3% 26.1%;
-    --sidebar-primary: 240 5.9% 10%;
-    --sidebar-primary-foreground: 0 0% 98%;
-    --sidebar-accent: 240 4.8% 95.9%;
-    --sidebar-accent-foreground: 240 5.9% 10%;
-    --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Sidebar Colors - Light Mode #303481 */
+    --sidebar: 237 47% 35%; /* #303481 */
+    --sidebar-foreground: 0 0% 100%; /* #FFFFFF */
+    --sidebar-primary: 237 47% 35%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 237 55% 50%; /* Hover state - brighter for better visibility */
+    --sidebar-accent-foreground: 0 0% 100%;
+    --sidebar-border: 237 47% 45%;
+    --sidebar-ring: 210 40% 85%;
   }
 
   .dark {
-    --background: 240 10% 3.9%;
-    --foreground: 0 0% 98%;
-    --card: 240 10% 3.9%;
-    --card-foreground: 0 0% 98%;
-    --popover: 240 10% 3.9%;
-    --popover-foreground: 0 0% 98%;
+    /* Main Background & Text - Dark Mode */
+    --background: 222.2 47.4% 11.2%; /* #0f172a */
+    --foreground: 0 0% 96.1%; /* #F5F5F5 */
+    
+    /* Card & Panels - Dark Mode */
+    --card: 217.2 32.6% 17.5%; /* #1e293b */
+    --card-foreground: 0 0% 96.1%;
+    
+    --popover: 217.2 32.6% 17.5%;
+    --popover-foreground: 0 0% 96.1%;
+    
     --primary: 0 0% 98%;
     --primary-foreground: 240 5.9% 10%;
-    --secondary: 240 3.7% 15.9%;
+    
+    --secondary: 217.2 32.6% 17.5%;
     --secondary-foreground: 0 0% 98%;
-    --muted: 240 3.7% 15.9%;
-    --muted-foreground: 240 5% 64.9%;
-    --accent: 240 3.7% 15.9%;
+    
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    
+    --accent: 217.2 32.6% 17.5%;
     --accent-foreground: 0 0% 98%;
+    
     --destructive: 0 62.8% 30.6%;
     --destructive-foreground: 0 0% 98%;
-    --border: 240 3.7% 15.9%;
-    --input: 240 3.7% 15.9%;
-    --ring: 240 4.9% 83.9%;
+    
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 212.7 26.8% 83.9%;
 
-    --sidebar: 240 5.9% 10%;
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-primary: 224.3 76.3% 48%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    /* Custom Sidebar Colors - Dark Mode #1e255d */
+    --sidebar: 234 54% 24%; /* #1e255d */
+    --sidebar-foreground: 210 40% 90%; /* #E3EDF7 - brighter for better readability */
+    --sidebar-primary: 234 54% 24%;
+    --sidebar-primary-foreground: 210 40% 90%;
+    --sidebar-accent: 234 60% 35%; /* Hover state - more visible on dark background */
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 234 54% 30%;
+    --sidebar-ring: 210 40% 85%;
   }
 }
 
@@ -79,7 +101,15 @@
     font-weight: 450;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    transition: background-color 0.3s ease, color 0.3s ease;
   }
+}
+
+/* Smooth transitions untuk theme changes */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 /* View Transition API styling untuk theme toggler */
@@ -136,5 +166,48 @@
   to {
     opacity: 1;
     transform: scale(1);
+  }
+}
+
+/* Print Styles */
+@media print {
+  .print\:hidden {
+    display: none !important;
+  }
+
+  /* Hide sidebar, header, buttons when printing */
+  header,
+  aside,
+  button,
+  .no-print {
+    display: none !important;
+  }
+
+  /* Optimize print layout */
+  body {
+    print-color-adjust: exact;
+    -webkit-print-color-adjust: exact;
+  }
+
+  main {
+    padding: 0 !important;
+    margin: 0 !important;
+    width: 100% !important;
+  }
+
+  /* Better page breaks */
+  .print-page-break {
+    page-break-after: always;
+  }
+
+  /* Preserve colors in print */
+  * {
+    color: black !important;
+    background: white !important;
+  }
+
+  .text-green-600,
+  .text-red-600 {
+    font-weight: bold !important;
   }
 }

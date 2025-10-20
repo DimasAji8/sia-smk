@@ -20,11 +20,11 @@ export default function KeuanganTransaksi() {
           <h3 className="text-lg font-medium mb-4">Tambah Transaksi Baru</h3>
           <form className="space-y-4">
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-base font-medium mb-2">
                 Jenis Transaksi
               </label>
               <select
-                className="w-full border rounded-md p-2"
+                className="w-full border rounded-md p-3 text-base"
                 value={jenisTransaksi}
                 onChange={(e) => setJenisTransaksi(e.target.value)}
               >
@@ -34,8 +34,8 @@ export default function KeuanganTransaksi() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Kategori</label>
-              <select className="w-full border rounded-md p-2">
+              <label className="block text-base font-medium mb-2">Kategori</label>
+              <select className="w-full border rounded-md p-3 text-base">
                 {jenisTransaksi === "pemasukan" ? (
                   <>
                     <option value="spp">SPP</option>
@@ -57,20 +57,20 @@ export default function KeuanganTransaksi() {
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">Nominal</label>
+              <label className="block text-base font-medium mb-2">Nominal</label>
               <input
                 type="number"
-                className="w-full border rounded-md p-2"
+                className="w-full border rounded-md p-3 text-base"
                 placeholder="Masukkan nominal"
               />
             </div>
 
             <div>
-              <label className="block text-sm font-medium mb-1">
+              <label className="block text-base font-medium mb-2">
                 Deskripsi
               </label>
               <textarea
-                className="w-full border rounded-md p-2"
+                className="w-full border rounded-md p-3 text-base"
                 rows={3}
                 placeholder="Deskripsi transaksi"
               />

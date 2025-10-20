@@ -13,29 +13,29 @@ export default function KeuanganDashboard() {
       {/* Stats Cards */}
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
-          <h3 className="text-sm font-medium">Total Pemasukan Bulan Ini</h3>
-          <div className="text-2xl font-bold text-green-600">Rp 15.500.000</div>
-          <p className="text-xs text-muted-foreground">
+          <h3 className="text-base font-medium">Total Pemasukan Bulan Ini</h3>
+          <div className="text-3xl font-bold text-green-600">Rp 15.500.000</div>
+          <p className="text-sm text-muted-foreground">
             +12.5% dari bulan lalu
           </p>
         </div>
 
         <div className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
-          <h3 className="text-sm font-medium">Total Pengeluaran</h3>
-          <div className="text-2xl font-bold text-red-600">Rp 8.200.000</div>
-          <p className="text-xs text-muted-foreground">+3.2% dari bulan lalu</p>
+          <h3 className="text-base font-medium">Total Pengeluaran</h3>
+          <div className="text-3xl font-bold text-red-600">Rp 8.200.000</div>
+          <p className="text-sm text-muted-foreground">+3.2% dari bulan lalu</p>
         </div>
 
         <div className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
-          <h3 className="text-sm font-medium">Saldo Kas</h3>
-          <div className="text-2xl font-bold">Rp 45.800.000</div>
-          <p className="text-xs text-muted-foreground">+8.7% dari bulan lalu</p>
+          <h3 className="text-base font-medium">Saldo Kas</h3>
+          <div className="text-3xl font-bold">Rp 45.800.000</div>
+          <p className="text-sm text-muted-foreground">+8.7% dari bulan lalu</p>
         </div>
 
         <div className="rounded-lg border bg-card p-6 text-card-foreground shadow-sm">
-          <h3 className="text-sm font-medium">Tunggakan SPP</h3>
-          <div className="text-2xl font-bold text-orange-600">Rp 2.500.000</div>
-          <p className="text-xs text-muted-foreground">
+          <h3 className="text-base font-medium">Tunggakan SPP</h3>
+          <div className="text-3xl font-bold text-orange-600">Rp 2.500.000</div>
+          <p className="text-sm text-muted-foreground">
             -15.3% dari bulan lalu
           </p>
         </div>
