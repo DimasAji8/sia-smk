@@ -2,58 +2,75 @@ import { Outlet } from "react-router-dom";
 import { AppSidebar } from "../components/common/AppSidebar";
 import { Button } from "../components/ui/button";
 import { ThemeToggler } from "../components/ui/theme-toggler";
-import { Bell, User } from "lucide-react";
-import {
-  SidebarProvider,
-  SidebarInset,
-  SidebarTrigger,
-} from "../components/ui/sidebar";
+import { Bell, Search } from "lucide-react";
+import { SidebarProvider, SidebarTrigger, SidebarInset } from "../components/ui/sidebar";
+import { Input } from "../components/ui/input";
 
 export function AppLayout() {
+  // Get current date
+  const getCurrentDate = () => {
+    const options: Intl.DateTimeFormatOptions = { 
+      weekday: 'long', 
+      year: 'numeric', 
+      month: 'long', 
+      day: 'numeric' 
+    };
+    return new Date().toLocaleDateString('id-ID', options);
+  };
+
   return (
     <SidebarProvider>
-      <div className="flex min-h-screen w-full bg-background transition-colors duration-300">
-        <AppSidebar />
-        <SidebarInset className="transition-all duration-300 ease-in-out">
-          {/* Top Navigation */}
-          <header className="flex h-16 items-center gap-4 border-b bg-card px-4 shadow-sm transition-colors duration-300 lg:px-6">
-            <SidebarTrigger />
+      <AppSidebar />
+      <SidebarInset>
+        {/* Top Navigation */}
+        <header className="flex h-20 shrink-0 items-center justify-between bg-transparent px-6 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
+          <div className="flex items-center gap-4">
+            <SidebarTrigger className="-ml-1" />
+            <div className="flex flex-col">
+              <p className="text-sm">
+                | {getCurrentDate()}
+              </p>
+            </div>
+          </div>
 
-            {/* Breadcrumb atau Title bisa ditambahkan di sini */}
-            <div className="flex-1">
-              <h1 className="text-xl font-semibold">
-                Sistem Informasi Akademik
-              </h1>
+          {/* Right Side Actions */}
+          <div className="flex items-center gap-4">
+            {/* Search Bar */}
+            <div className="relative w-64">
+              <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
+              <Input
+                type="search"
+                placeholder="Search..."
+                className="pl-9 bg-white/50 border-border focus-visible:ring-primary"
+              />
             </div>
 
-            {/* Right Side Actions */}
-            <div className="flex items-center gap-3">
-              <ThemeToggler />
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="h-10 w-10 transition-all duration-200"
-              >
-                <Bell className="h-5 w-5" />
-                <span className="sr-only">Notifications</span>
-              </Button>
-              <Button 
-                variant="outline" 
-                size="icon" 
-                className="h-10 w-10 transition-all duration-200"
-              >
-                <User className="h-5 w-5" />
-                <span className="sr-only">User menu</span>
-              </Button>
-            </div>
-          </header>
+            <ThemeToggler />
+            
+            <Button variant="ghost" size="icon" className="h-10 w-10 relative">
+              <Bell className="h-5 w-5" />
+              <span className="absolute top-1 right-1 h-2 w-2 rounded-full bg-red-500"></span>
+              <span className="sr-only">Notifications</span>
+            </Button>
 
-          {/* Page Content */}
-          <main className="flex-1 overflow-auto p-6 transition-colors duration-300 lg:p-8">
-            <Outlet />
-          </main>
-        </SidebarInset>
-      </div>
+            {/* User Profile */}
+            <Button variant="ghost" className="gap-2 h-10">
+              <div className="flex items-center justify-center h-8 w-8 rounded-full bg-primary text-primary-foreground font-semibold text-sm">
+                DE
+              </div>
+              <div className="flex flex-col items-start">
+                <span className="text-sm font-semibold">DEV SUPERADMIN</span>
+                <span className="text-xs text-muted-foreground">Super User</span>
+              </div>
+            </Button>
+          </div>
+        </header>
+
+        {/* Page Content */}
+        <main className="flex flex-1 flex-col gap-4 p-6">
+          <Outlet />
+        </main>
+      </SidebarInset>
     </SidebarProvider>
   );
 }
