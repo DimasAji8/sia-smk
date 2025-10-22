@@ -1,0 +1,20 @@
+/* ===== Table Component Styles ===== */
+
+@layer components {
+  /* Table row */
+  .table-row {
+    @apply border-b transition-colors;
+    border-color: hsl(var(--border));
+  }
+
+  .table-row:hover {
+    @apply bg-muted;
+  }
+
+  /* Table header */
+  .table-header {
+    @apply font-semibold;
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+  }
+}

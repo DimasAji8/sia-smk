@@ -1,0 +1,43 @@
+/* ===== Badge Component Styles ===== */
+
+@layer components {
+  /* Base badge */
+  .badge {
+    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold;
+  }
+
+  /* Badge variants */
+  .badge-primary {
+    background: hsl(var(--primary-light));
+    color: hsl(var(--primary));
+    border: 1px solid hsl(var(--primary));
+  }
+
+  .badge-secondary {
+    background: hsl(var(--accent-light));
+    color: hsl(var(--secondary));
+    border: 1px solid hsl(var(--secondary));
+  }
+
+  .badge-accent {
+    background: hsl(var(--accent-light));
+    color: hsl(var(--accent));
+    border: 1px solid hsl(var(--accent));
+  }
+
+  .badge-success {
+    background: hsl(var(--success-light));
+    color: hsl(var(--success));
+    border: 1px solid hsl(var(--success));
+  }
+
+  .badge-warning {
+    background: hsl(var(--warning-light));
+    color: hsl(var(--warning));
+  }
+
+  .badge-error {
+    background: hsl(var(--error-light));
+    color: hsl(var(--error));
+  }
+}

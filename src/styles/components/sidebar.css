@@ -1,0 +1,47 @@
+/* ===== Sidebar Component Styles ===== */
+
+@layer components {
+  /* Sidebar container */
+  .sidebar {
+    @apply bg-sidebar shadow-sm rounded-[20px] m-3 overflow-hidden;
+    height: calc(100vh - 24px);
+    border: 1px solid hsl(var(--sidebar-border));
+    box-shadow: 4px 0 24px rgba(255, 127, 80, 0.04);
+    transition: width 200ms ease-in-out, transform 200ms ease-in-out;
+  }
+
+  /* Dark mode sidebar */
+  .dark .sidebar {
+    box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+  }
+
+  /* Collapsed state - icon only */
+  .sidebar[data-state="collapsed"] {
+    width: 5rem !important;
+  }
+
+  /* Hide text when collapsed */
+  .sidebar[data-state="collapsed"] .sidebar-item span:not(.sr-only) {
+    @apply opacity-0 w-0 overflow-hidden;
+    transition: opacity 200ms ease-in-out;
+  }
+
+  /* Sidebar menu item */
+  .sidebar-item {
+    @apply px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
+    color: hsl(var(--sidebar-foreground));
+  }
+
+  .sidebar-item:hover {
+    background: hsl(var(--sidebar-hover));
+    color: hsl(var(--primary));
+  }
+
+  /* Active menu item */
+  .sidebar-item-active {
+    @apply font-bold shadow-sm;
+    background: hsl(var(--sidebar-hover));
+    color: hsl(var(--primary));
+    box-shadow: 0 2px 8px rgba(79, 127, 255, 0.15);
+  }
+}

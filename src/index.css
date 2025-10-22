@@ -1,5 +1,20 @@
+/* ===== Global Styles - Tailwind + Shadcn UI ===== */
+/* Organized by: Theme Variables → Base Styles → Components → Utilities */
+
+/* Import Google Fonts */
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap");
 
+/* Import Component Styles - MUST be before @tailwind */
+@import "./styles/base/typography.css";
+@import "./styles/base/animations.css";
+@import "./styles/components/sidebar.css";
+@import "./styles/components/card.css";
+@import "./styles/components/button.css";
+@import "./styles/components/badge.css";
+@import "./styles/components/table.css";
+@import "./styles/components/input.css";
+
+/* Tailwind Directives */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -114,265 +129,50 @@
   }
 }
 
-/* ===== Base Styles ===== */
+/* ===== Base Resets & Global Styles ===== */
 @layer base {
   * {
     @apply border-border;
   }
   
   body {
-    @apply text-foreground;
-    font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 400;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    background: hsl(var(--background));
+    @apply bg-background text-foreground;
     min-height: 100vh;
   }
   
-  /* Smooth transitions */
-  * {
+  /* ===== Smooth Transitions (excluding Radix Portal elements) ===== */
+  *:not([data-radix-popper-content-wrapper]):not([data-radix-select-content]):not([data-radix-dropdown-menu-content]):not([data-radix-dialog-content]):not([data-radix-collapsible-content]) {
+    transition-property: background-color, border-color, color, box-shadow;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  /* Add transform transition for specific interactive elements */
+  .sidebar,
+  .card,
+  button,
+  a,
+  svg,
+  [role="button"],
+  .transition-transform {
     transition-property: background-color, border-color, color, box-shadow, transform;
     transition-duration: 200ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
 }
 
-/* ===== Component Utilities ===== */
+/* ===== Global Utility Classes ===== */
 @layer utilities {
-  /* Sidebar Styles */
-/* ===== Sidebar Styling ===== */
-.sidebar {
-  background: hsl(var(--sidebar-background));
-  box-shadow: 4px 0 24px rgba(255, 127, 80, 0.04);
-  border: 1px solid hsl(var(--sidebar-border));
-  border-radius: 20px;
-  margin: 12px;
-  height: calc(100vh - 24px);
-  transition: width 200ms ease-in-out;
-  overflow: hidden;
-}
-
-/* Dark mode sidebar */
-.dark .sidebar {
-  background: hsl(var(--sidebar-background));
-  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
-  border: 1px solid hsl(var(--sidebar-border));
-}
-
-/* Sidebar collapsed state - show only icons */
-.sidebar[data-state="collapsed"] {
-  width: 5rem !important;
-}
-
-/* Hide text when sidebar is collapsed */
-.sidebar[data-state="collapsed"] .sidebar-item span:not(.sr-only) {
-  opacity: 0;
-  width: 0;
-  overflow: hidden;
-}
-
-/* Accordion animation for collapsible */
-@keyframes accordion-down {
-  from {
-    height: 0;
-  }
-  to {
-    height: var(--radix-collapsible-content-height);
-  }
-}
-
-@keyframes accordion-up {
-  from {
-    height: var(--radix-collapsible-content-height);
-  }
-  to {
-    height: 0;
-  }
-}
-
-.animate-accordion-down {
-  animation: accordion-down 0.3s ease-out;
-}
-
-.animate-accordion-up {
-  animation: accordion-up 0.3s ease-out;
-}
-
-  .sidebar-item {
-    @apply px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
-    color: hsl(var(--sidebar-foreground));
-  }
-  
-  .sidebar-item:hover {
-    background: hsl(var(--sidebar-hover));
-    color: hsl(var(--primary));
-  }
-  
-  .sidebar-item-active {
-    background: hsl(var(--sidebar-hover));
-    color: hsl(var(--primary));
-    font-weight: 700;
-    box-shadow: 0 2px 8px rgba(79, 127, 255, 0.15);
-  }
-  
-  /* Header Styles */
+  /* Header styles */
   .header {
+    @apply border-none shadow-none;
     background: hsl(var(--header));
     color: hsl(var(--header-foreground));
-    border: none;
-    box-shadow: none;
   }
   
-  /* Card Styles */
-  .card {
-    background: hsl(var(--card));
-    border: 1px solid hsl(var(--border));
-    border-radius: var(--radius);
-    box-shadow: 0 4px 20px rgba(79, 127, 255, 0.08), 0 2px 8px rgba(0, 0, 0, 0.04);
-    transition: transform 200ms, box-shadow 200ms;
-    backdrop-filter: blur(10px);
-  }
-  
-  .card:hover {
-    box-shadow: 0 8px 30px rgba(79, 127, 255, 0.12), 0 4px 12px rgba(0, 0, 0, 0.06);
-    transform: translateY(-2px);
-    border-color: hsl(217 91% 85%);
-  }
-  
-  .card-header {
-    @apply p-6 border-b;
-    border-color: hsl(var(--border));
-  }
-  
-  .card-content {
-    @apply p-6;
-  }
-  
-  /* Button Styles */
-  .btn-primary {
-    background: hsl(var(--primary));
-    color: hsl(var(--primary-foreground));
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
-    @apply hover:shadow-lg active:scale-95;
-    box-shadow: 0 4px 16px rgba(79, 127, 255, 0.25);
-  }
-  
-  .btn-primary:hover {
-    background: hsl(var(--primary-hover));
-    box-shadow: 0 6px 24px rgba(79, 127, 255, 0.35);
-  }
-  
-  .btn-secondary {
-    background: hsl(var(--secondary));
-    color: hsl(var(--secondary-foreground));
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
-    @apply hover:shadow-lg active:scale-95;
-  }
-  
-  .btn-secondary:hover {
-    background: hsl(var(--secondary-hover));
-  }
-  
-  .btn-accent {
-    background: hsl(var(--accent));
-    color: hsl(var(--accent-foreground));
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
-    @apply hover:shadow-lg active:scale-95;
-  }
-  
-  .btn-accent:hover {
-    background: hsl(var(--secondary));
-  }
-  
-  .btn-outline {
-    background: transparent;
-    border: 2px solid hsl(var(--secondary));
-    color: hsl(var(--secondary));
-    @apply px-5 py-2.5 rounded-lg font-semibold;
-    @apply hover:bg-secondary hover:text-secondary-foreground active:scale-95;
-  }
-  
-  .btn-ghost {
-    background: transparent;
-    color: hsl(var(--foreground));
-    @apply px-4 py-2 rounded-lg font-medium;
-    @apply hover:bg-muted active:scale-95;
-  }
-  
-  /* Badge Styles */
-  .badge {
-    @apply inline-flex items-center px-3 py-1 rounded-full text-xs font-bold;
-  }
-  
-  .badge-primary {
-    background: hsl(var(--primary-light));
-    color: hsl(var(--primary));
-    border: 1px solid hsl(var(--primary));
-  }
-  
-  .badge-secondary {
-    background: hsl(var(--accent-light));
-    color: hsl(var(--secondary));
-    border: 1px solid hsl(var(--secondary));
-  }
-  
-  .badge-accent {
-    background: hsl(var(--accent-light));
-    color: hsl(var(--accent));
-    border: 1px solid hsl(var(--accent));
-  }
-  
-  .badge-success {
-    background: hsl(var(--success-light));
-    color: hsl(var(--success));
-    border: 1px solid hsl(var(--success));
-  }
-  
-  .badge-warning {
-    background: hsl(var(--warning-light));
-    color: hsl(var(--warning));
-  }
-  
-  .badge-error {
-    background: hsl(var(--error-light));
-    color: hsl(var(--error));
-  }
-  
-  /* Table Styles */
-  .table-row {
-    @apply border-b transition-colors;
-    border-color: hsl(var(--border));
-  }
-  
-  .table-row:hover {
-    background: hsl(var(--muted));
-  }
-  
-  .table-header {
-    background: hsl(var(--muted));
-    color: hsl(var(--foreground));
-    font-weight: 600;
-  }
-  
-  /* Input Styles */
-  .input {
-    background: hsl(var(--input));
-    border: 1.5px solid hsl(var(--input-border));
-    color: hsl(var(--foreground));
-    @apply px-4 py-2.5 rounded-lg text-sm;
-    @apply focus:outline-none focus:ring-2 focus:border-primary;
-  }
-  
-  .input:focus {
-    background: hsl(var(--card));
-    box-shadow: 0 0 0 3px rgba(79, 127, 255, 0.12);
-    border-color: hsl(var(--primary));
-  }
-  
-  /* Section Background */
+  /* Section background */
   .section-bg {
-    background: hsl(var(--muted));
+    @apply bg-muted;
   }
   
   /* Text Colors */
@@ -467,14 +267,5 @@
   .card {
     box-shadow: none !important;
     border: 1px solid #ddd !important;
-  }
-}
-
-@layer base {
-  * {
-    @apply border-border;
-  }
-  body {
-    @apply bg-background text-foreground;
   }
 }

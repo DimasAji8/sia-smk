@@ -152,7 +152,6 @@ export function AppSidebar() {
                               <SidebarMenuSubItem key={subItem.title}>
                                 <SidebarMenuSubButton asChild>
                                   <Link to={subItem.href}>
-                                    {subItem.icon && <subItem.icon />}
                                     <span>{subItem.title}</span>
                                   </Link>
                                 </SidebarMenuSubButton>

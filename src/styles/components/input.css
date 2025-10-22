@@ -1,0 +1,18 @@
+/* ===== Input Component Styles ===== */
+
+@layer components {
+  /* Base input */
+  .input {
+    @apply px-4 py-2.5 rounded-lg text-sm;
+    @apply focus:outline-none focus:ring-2 focus:border-primary;
+    background: hsl(var(--input));
+    border: 1.5px solid hsl(var(--input-border));
+    color: hsl(var(--foreground));
+  }
+
+  .input:focus {
+    background: hsl(var(--card));
+    border-color: hsl(var(--primary));
+    box-shadow: 0 0 0 3px rgba(79, 127, 255, 0.12);
+  }
+}
