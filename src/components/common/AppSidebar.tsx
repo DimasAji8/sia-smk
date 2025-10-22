@@ -28,12 +28,12 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
-} from "../../components/ui/sidebar";
+} from "../ui/sidebar";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
-} from "../../components/ui/collapsible";
+} from "../ui/collapsible";
 
 const menuItems = [
   {
@@ -114,15 +114,15 @@ const menuItems = [
 
 export function AppSidebar() {
   return (
-    <Sidebar className="sidebar">
+    <Sidebar collapsible="icon" className="sidebar">
       <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex flex-col items-center gap-2 p-4">
+        <div className="flex items-center gap-3 p-4 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
           <img
-            src="/images/logo/smk2.png"
+            src="/images/logo/smk1.png"
             alt="Logo SMK"
-            className="h-16 w-16 rounded-lg object-cover"
+            className="h-10 w-10 rounded-lg object-cover transition-all flex-shrink-0 group-data-[collapsible=icon]:h-8 group-data-[collapsible=icon]:w-8"
           />
-          <span className="text-center text-base font-extrabold leading-tight">
+          <span className="text-sm leading-tight group-data-[collapsible=icon]:hidden">
             SMK SASMITA JAYA 1
           </span>
         </div>
@@ -137,16 +137,16 @@ export function AppSidebar() {
                 // Menu dengan submenu
                 if (item.items && item.items.length > 0) {
                   return (
-                    <Collapsible key={item.title} asChild defaultOpen>
+                    <Collapsible key={item.title} asChild defaultOpen className="group/collapsible">
                       <SidebarMenuItem>
                         <CollapsibleTrigger asChild>
                           <SidebarMenuButton tooltip={item.title}>
                             {item.icon && <item.icon />}
                             <span>{item.title}</span>
-                            <ChevronRight className="ml-auto transition-transform duration-200 group-data-[state=open]/collapsible:rotate-90" />
+                            <ChevronRight className="ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90" />
                           </SidebarMenuButton>
                         </CollapsibleTrigger>
-                        <CollapsibleContent>
+                        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
                           <SidebarMenuSub>
                             {item.items.map((subItem) => (
                               <SidebarMenuSubItem key={subItem.title}>

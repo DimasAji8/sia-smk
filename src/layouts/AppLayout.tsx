@@ -5,6 +5,7 @@ import { ThemeToggler } from "../components/ui/theme-toggler";
 import { Bell, Search } from "lucide-react";
 import { SidebarProvider, SidebarTrigger, SidebarInset } from "../components/ui/sidebar";
 import { Input } from "../components/ui/input";
+import { Separator } from "../components/ui/separator";
 
 export function AppLayout() {
   // Get current date
@@ -23,12 +24,13 @@ export function AppLayout() {
       <AppSidebar />
       <SidebarInset>
         {/* Top Navigation */}
-        <header className="flex h-20 shrink-0 items-center justify-between bg-transparent px-6 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
+        <header className="flex h-20 shrink-0 items-center justify-between bg-transparent px-10 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
           <div className="flex items-center gap-4">
             <SidebarTrigger className="-ml-1" />
+            <Separator orientation="vertical" className="h-6" />
             <div className="flex flex-col">
               <p className="text-sm">
-                | {getCurrentDate()}
+                {getCurrentDate()}
               </p>
             </div>
           </div>
@@ -67,7 +69,7 @@ export function AppLayout() {
         </header>
 
         {/* Page Content */}
-        <main className="flex flex-1 flex-col gap-4 p-6">
+        <main className="flex flex-1 flex-col gap-4 px-10 py-6">
           <Outlet />
         </main>
       </SidebarInset>

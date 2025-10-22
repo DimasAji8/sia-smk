@@ -14,20 +14,20 @@
        #F8FAFB - Off-White Text */
     
     /* Background & Base */
-    --background: 220 40% 98%;           /* #F7F9FC - Very light blue-gray background */
+    --background: 30 20% 99%;            /* Warm white background */
     --foreground: 222 47% 11%;           /* #0F172A - Dark slate text */
     
     /* Sidebar - Modern White/Light Blue */
-    --sidebar: 220 40% 98%;              /* #F7F9FC - Very light blue sidebar (matching background) */
+    --sidebar: 30 20% 99%;               /* Same as background */
     --sidebar-foreground: 240 5.3% 26.1%;   /* #0F172A - Dark text */
-    --sidebar-border: 220 13% 91%;       /* Light blue border */
+    --sidebar-border: 30 20% 90%;        /* Warm border */
     --sidebar-hover: 217 91% 95%;        /* #EEF4FF - Light blue hover */
-    --sidebar-active: 217 91% 60%;       /* #4F7FFF - Modern blue active */
+    --sidebar-active: 217 91% 35%;       /* Dark navy active */
     --sidebar-active-bg: 217 91% 95%;    /* Light blue bg */
     
-    /* Primary - Modern Blue */
-    --primary: 217 91% 60%;              /* #4F7FFF - Modern bright blue */
-    --primary-hover: 217 91% 55%;        /* Darker blue */
+    /* Primary - Dark Navy Blue */
+    --primary: 217 91% 35%;              /* Dark navy blue */
+    --primary-hover: 217 91% 30%;        /* Even darker navy */
     --primary-foreground: 0 0% 100%;     /* White text */
     --primary-light: 217 91% 95%;        /* Light blue bg */
     
@@ -46,15 +46,15 @@
     --header-foreground: 210 17% 20%;    /* Dark text */
     
     /* Neutral Elements */
-    --card: 0 0% 100%;                   /* #FFFFFF - Pure white cards */
+    --card: 30 20% 99.5%;                /* Warm white cards */
     --card-foreground: 222 47% 11%;      /* Dark slate text */
-    --muted: 220 40% 96%;                /* #EEF2F7 - Very light blue-gray */
+    --muted: 30 20% 96%;                 /* Warm muted bg */
     --muted-foreground: 215 16% 47%;     /* #64748B - Muted slate */
     
     /* Borders & Inputs */
-    --border: 217 91% 94%;               /* #E5EDFF - Soft blue border */
-    --input: 0 0% 100%;                  /* #FFFFFF - White input bg */
-    --input-border: 217 91% 90%;         /* Light blue input border */
+    --border: 30 20% 90%;                /* Warm border */
+    --input: 30 20% 99%;                 /* Warm input bg */
+    --input-border: 30 20% 88%;          /* Warm input border */
     --ring: 217 91% 60%;                 /* Focus ring = modern blue */
     
     /* Popover & Dropdown */
@@ -72,39 +72,45 @@
     --info-light: 217 91% 95%;           /* Light blue bg */
     
     /* Radius */
-    --radius: 1rem;                      /* 16px - More rounded for modern look */                      --sidebar-background: 0 0% 98%;                      --sidebar-primary: 240 5.9% 10%;                      --sidebar-primary-foreground: 0 0% 98%;                      --sidebar-accent: 240 4.8% 95.9%;                      --sidebar-accent-foreground: 240 5.9% 10%;                      --sidebar-ring: 217.2 91.2% 59.8%;
+    --radius: 1rem;                      /* 16px - More rounded for modern look */
+    --sidebar-background: 30 20% 99%;    /* Warm white sidebar matching background */
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 30 20% 97%;        /* Warm light accent */
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
   }
 
   /* Dark Mode */
   .dark {
-    --background: 210 22% 20%;           /* #232F3E - Very dark navy */
-    --foreground: 200 20% 96%;           /* #F8FAFB - Off-white text */
+    --background: 222.2 84% 4.9%;        /* Very dark - matching main content */
+    --foreground: 210 40% 98%;           /* Light text */
     
-    --sidebar: 220 40% 16%;              /* Darker blue sidebar */
-    --sidebar-foreground: 240 4.8% 95.9%;
-    --sidebar-border: 240 3.7% 15.9%;
-    --sidebar-hover: 217 91% 25%;        /* Blue hover */
+    --sidebar: 222.2 84% 4.9%;           /* Same as background */
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-border: 217.2 32.6% 17.5%;
+    --sidebar-hover: 217.2 32.6% 17.5%;  /* Subtle hover */
     --sidebar-active: 217 91% 60%;       /* Modern blue active */
-    --sidebar-active-bg: 220 40% 20%;
+    --sidebar-active-bg: 217.2 32.6% 17.5%;
     
     --primary: 217 91% 60%;              /* #4F7FFF - Modern blue */
     --primary-hover: 217 91% 55%;
     --primary-foreground: 0 0% 100%;
     
-    --card: 210 22% 24%;
-    --card-foreground: 200 20% 96%;
-    --muted: 210 22% 28%;
-    --muted-foreground: 200 10% 65%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
     
-    --border: 210 22% 28%;
-    --input: 210 22% 28%;
-    --ring: 200 67% 85%;
-    --sidebar-background: 240 5.9% 10%;
-    --sidebar-primary: 224.3 76.3% 48%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 217 91% 60%;
+    --sidebar-background: 222.2 84% 4.9%;
+    --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 240 3.7% 15.9%;
-    --sidebar-accent-foreground: 240 4.8% 95.9%;
-    --sidebar-ring: 217.2 91.2% 59.8%;
+    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-ring: 217 91% 60%;
   }
 }
 
@@ -117,11 +123,10 @@
   body {
     @apply text-foreground;
     font-family: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    font-weight: 600;
+    font-weight: 400;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background: linear-gradient(to bottom right, #F8FAFF 0%, #F5F7FF 40%, #FAFBFF 70%, #FFFFFF 100%);
-    background-attachment: fixed;
+    background: hsl(var(--background));
     min-height: 100vh;
   }
   
@@ -138,10 +143,63 @@
   /* Sidebar Styles */
 /* ===== Sidebar Styling ===== */
 .sidebar {
-  background: linear-gradient(180deg, #FDFEFF 0%, #FAFCFF 40%, #F7FAFF 100%);
-  box-shadow: 4px 0 24px rgba(79, 127, 255, 0.04);
-  border-right: 1px solid hsl(var(--border));
-}  .sidebar-item {
+  background: hsl(var(--sidebar-background));
+  box-shadow: 4px 0 24px rgba(255, 127, 80, 0.04);
+  border: 1px solid hsl(var(--sidebar-border));
+  border-radius: 20px;
+  margin: 12px;
+  height: calc(100vh - 24px);
+  transition: width 200ms ease-in-out;
+  overflow: hidden;
+}
+
+/* Dark mode sidebar */
+.dark .sidebar {
+  background: hsl(var(--sidebar-background));
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.5);
+  border: 1px solid hsl(var(--sidebar-border));
+}
+
+/* Sidebar collapsed state - show only icons */
+.sidebar[data-state="collapsed"] {
+  width: 5rem !important;
+}
+
+/* Hide text when sidebar is collapsed */
+.sidebar[data-state="collapsed"] .sidebar-item span:not(.sr-only) {
+  opacity: 0;
+  width: 0;
+  overflow: hidden;
+}
+
+/* Accordion animation for collapsible */
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-collapsible-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-collapsible-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.3s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.3s ease-out;
+}
+
+  .sidebar-item {
     @apply px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
     color: hsl(var(--sidebar-foreground));
   }
