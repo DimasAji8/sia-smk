@@ -41,8 +41,8 @@
     --sidebar-active-bg: 217 91% 95%;    /* Light blue bg */
     
     /* Primary - Dark Navy Blue */
-    --primary: 217 91% 35%;              /* Dark navy blue */
-    --primary-hover: 217 91% 30%;        /* Even darker navy */
+    --primary: 217 91% 35%;              /* Navy blue - darker */
+    --primary-hover: 217 91% 28%;        /* Even darker on hover */
     --primary-foreground: 0 0% 100%;     /* White text */
     --primary-light: 217 91% 95%;        /* Light blue bg */
     
@@ -137,18 +137,28 @@
   
   body {
     @apply bg-background text-foreground;
+    /* Force block layout - override Vite defaults */
+    display: block;
+    margin: 0;
+    padding: 0;
     min-height: 100vh;
   }
   
-  /* ===== Smooth Transitions (excluding Radix Portal elements) ===== */
-  *:not([data-radix-popper-content-wrapper]):not([data-radix-select-content]):not([data-radix-dropdown-menu-content]):not([data-radix-dialog-content]):not([data-radix-collapsible-content]) {
+  /* Reset root container */
+  #root {
+    display: block;
+    width: 100%;
+    min-height: 100vh;
+  }
+  
+  /* ===== Smooth Transitions (excluding Radix Portal elements & Sidebar) ===== */
+  *:not([data-radix-popper-content-wrapper]):not([data-radix-select-content]):not([data-radix-dropdown-menu-content]):not([data-radix-dialog-content]):not([data-radix-collapsible-content]):not(.sidebar):not(.sidebar *):not([data-sidebar]):not([data-sidebar] *) {
     transition-property: background-color, border-color, color, box-shadow;
-    transition-duration: 200ms;
+    transition-duration: 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
   
-  /* Add transform transition for specific interactive elements */
-  .sidebar,
+  /* Add transform transition for specific interactive elements (excluding sidebar) */
   .card,
   button,
   a,

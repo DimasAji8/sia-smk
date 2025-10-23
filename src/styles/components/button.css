@@ -3,8 +3,9 @@
 @layer components {
   /* Primary button */
   .btn-primary {
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
+    @apply px-5 py-2.5 font-semibold shadow-md;
     @apply hover:shadow-lg active:scale-95;
+    border-radius: 4px;
     background: hsl(var(--primary));
     color: hsl(var(--primary-foreground));
     box-shadow: 0 4px 16px rgba(79, 127, 255, 0.25);
@@ -12,13 +13,15 @@
 
   .btn-primary:hover {
     background: hsl(var(--primary-hover));
-    box-shadow: 0 6px 24px rgba(79, 127, 255, 0.35);
+    box-shadow: 0 6px 24px rgba(79, 127, 255, 0.4);
+    transform: translateY(-1px);
   }
 
   /* Secondary button */
   .btn-secondary {
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
+    @apply px-5 py-2.5 font-semibold shadow-md;
     @apply hover:shadow-lg active:scale-95;
+    border-radius: 4px;
     background: hsl(var(--secondary));
     color: hsl(var(--secondary-foreground));
   }
@@ -29,8 +32,9 @@
 
   /* Accent button */
   .btn-accent {
-    @apply px-5 py-2.5 rounded-lg font-semibold shadow-md;
+    @apply px-5 py-2.5 font-semibold shadow-md;
     @apply hover:shadow-lg active:scale-95;
+    border-radius: 4px;
     background: hsl(var(--accent));
     color: hsl(var(--accent-foreground));
   }
@@ -41,8 +45,9 @@
 
   /* Outline button */
   .btn-outline {
-    @apply px-5 py-2.5 rounded-lg font-semibold;
+    @apply px-5 py-2.5 font-semibold;
     @apply hover:bg-secondary hover:text-secondary-foreground active:scale-95;
+    border-radius: 4px;
     background: transparent;
     border: 2px solid hsl(var(--secondary));
     color: hsl(var(--secondary));
@@ -50,8 +55,9 @@
 
   /* Ghost button */
   .btn-ghost {
-    @apply px-4 py-2 rounded-lg font-medium;
+    @apply px-4 py-2 font-medium;
     @apply hover:bg-muted active:scale-95;
+    border-radius: 4px;
     background: transparent;
     color: hsl(var(--foreground));
   }

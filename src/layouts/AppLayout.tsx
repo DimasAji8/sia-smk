@@ -23,20 +23,18 @@ export function AppLayout() {
     <SidebarProvider>
       <AppSidebar />
       <SidebarInset>
-        {/* Top Navigation */}
-        <header className="flex h-20 shrink-0 items-center justify-between bg-transparent px-10 transition-[width,height] ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
-          <div className="flex items-center gap-4">
+        {/* Top Navigation - MENGIKUTI PATTERN RESMI SHADCN */}
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] duration-200 ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
+          <div className="flex items-center gap-2 px-4">
             <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="h-6" />
-            <div className="flex flex-col">
-              <p className="text-sm">
-                {getCurrentDate()}
-              </p>
-            </div>
+            <Separator orientation="vertical" className="mr-2 h-4" />
+            <p className="text-sm">
+              {getCurrentDate()}
+            </p>
           </div>
 
           {/* Right Side Actions */}
-          <div className="flex items-center gap-4">
+          <div className="ml-auto flex items-center gap-4 px-4">
             {/* Search Bar */}
             <div className="relative w-64">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
@@ -69,9 +67,9 @@ export function AppLayout() {
         </header>
 
         {/* Page Content */}
-        <main className="flex flex-1 flex-col gap-4 px-10 py-6">
+        <div className="flex flex-1 flex-col gap-4 px-10 py-6">
           <Outlet />
-        </main>
+        </div>
       </SidebarInset>
     </SidebarProvider>
   );

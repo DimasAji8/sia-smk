@@ -3,11 +3,12 @@
 @layer components {
   /* Sidebar container */
   .sidebar {
-    @apply bg-sidebar shadow-sm rounded-[20px] m-3 overflow-hidden;
+    @apply bg-sidebar shadow-sm rounded-lg m-3 overflow-hidden;
     height: calc(100vh - 24px);
     border: 1px solid hsl(var(--sidebar-border));
     box-shadow: 4px 0 24px rgba(255, 127, 80, 0.04);
-    transition: width 200ms ease-in-out, transform 200ms ease-in-out;
+    transition: width 200ms ease-linear;
+    will-change: width;
   }
 
   /* Dark mode sidebar */
@@ -20,28 +21,36 @@
     width: 5rem !important;
   }
 
+  /* Smooth text fade when sidebar collapses */
+  .sidebar span:not(.sr-only) {
+    transition: opacity 200ms cubic-bezier(0.4, 0, 0.2, 1), 
+                width 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
   /* Hide text when collapsed */
-  .sidebar[data-state="collapsed"] .sidebar-item span:not(.sr-only) {
-    @apply opacity-0 w-0 overflow-hidden;
-    transition: opacity 200ms ease-in-out;
+  .sidebar[data-state="collapsed"] span:not(.sr-only) {
+    opacity: 0;
+    width: 0;
+    overflow: hidden;
   }
 
   /* Sidebar menu item */
   .sidebar-item {
-    @apply px-4 py-2.5 rounded-lg text-sm font-medium transition-all duration-200;
+    @apply px-4 py-2.5 rounded-md text-sm font-medium transition-all duration-200;
     color: hsl(var(--sidebar-foreground));
   }
 
   .sidebar-item:hover {
     background: hsl(var(--sidebar-hover));
     color: hsl(var(--primary));
+    transform: translateX(2px);
   }
 
   /* Active menu item */
   .sidebar-item-active {
     @apply font-bold shadow-sm;
-    background: hsl(var(--sidebar-hover));
-    color: hsl(var(--primary));
-    box-shadow: 0 2px 8px rgba(79, 127, 255, 0.15);
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    box-shadow: 0 2px 8px rgba(79, 127, 255, 0.25);
   }
 }

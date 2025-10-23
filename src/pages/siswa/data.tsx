@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import {
   Card,
   CardContent,
@@ -68,6 +68,7 @@ const siswaData = [
 ];
 
 export default function DataSiswa() {
+  const navigate = useNavigate();
   const [searchQuery, setSearchQuery] = useState("");
   const [kelasFilter, setKelasFilter] = useState("all");
   const [jurusanFilter, setJurusanFilter] = useState("all");
@@ -101,7 +102,10 @@ export default function DataSiswa() {
             Kelola data siswa SMK Sasmita Jaya 1
           </p>
         </div>
-        <Button className="gap-2">
+        <Button 
+          className="gap-2"
+          onClick={() => navigate("/siswa/tambah")}
+        >
           <UserPlus className="h-4 w-4" />
           Tambah Siswa
         </Button>

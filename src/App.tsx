@@ -7,6 +7,7 @@ import KeuanganTagihan from "./pages/keuangan/tagihan";
 import KeuanganLaporan from "./pages/keuangan/laporan";
 import DataSiswa from "./pages/siswa/data";
 import DetailSiswa from "./pages/siswa/detail";
+import TambahSiswa from "./pages/siswa/tambah";
 
 const router = createBrowserRouter([
   {
@@ -45,6 +46,10 @@ const router = createBrowserRouter([
           {
             path: "data",
             element: <DataSiswa />,
+          },
+          {
+            path: "tambah",
+            element: <TambahSiswa />,
           },
           {
             path: "detail/:id",
