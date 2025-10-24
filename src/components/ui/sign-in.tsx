@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Eye, EyeOff } from 'lucide-react';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 // --- TYPE DEFINITIONS ---
 
@@ -7,7 +8,7 @@ interface SignInPageProps {
   title?: React.ReactNode;
   description?: React.ReactNode;
   heroImageSrc?: string;
-  onSignIn?: (event: React.FormEvent<HTMLFormElement>) => void;
+  onSignIn?: (event: React.FormEvent<HTMLFormElement>, captchaToken: string | null) => void;
   onResetPassword?: () => void;
 }
 
@@ -29,6 +30,14 @@ export const SignInPage: React.FC<SignInPageProps> = ({
  
 }) => {
   const [showPassword, setShowPassword] = useState(false);
+  const [captchaToken, setCaptchaToken] = useState<string | null>(null);
+
+  const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    if (onSignIn) {
+      onSignIn(e, captchaToken);
+    }
+  };
 
   return (
     <div className="h-[100dvh] flex flex-col md:flex-row font-geist w-[100dvw]">
@@ -39,7 +48,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
             {/* Logo Section */}
             <div className="flex items-center justify-center gap-4 mb-6">
               <img src="/images/logo/smk1.png" alt="Logo Sekolah" className="h-[5.5rem] w-[5.5rem] object-contain" />
-              <div className="h-[4.5rem] w-px bg-border mx-2"></div>
+              <div className="h-[4.5rem] w-[2px] bg-border mx-2"></div>
               <img src="/images/logo/smk2.png" alt="Logo SMK" className="h-[5.5rem] w-[5.5rem] object-contain" />
             </div>
 
@@ -49,7 +58,7 @@ export const SignInPage: React.FC<SignInPageProps> = ({
               <p className="animate-element animate-delay-200 text-base font-light text-muted-foreground">{description}</p>
             </div>
 
-            <form className="space-y-5" onSubmit={onSignIn}>
+            <form className="space-y-5" onSubmit={handleFormSubmit}>
               <div className="animate-element animate-delay-300">
                 <label className="text-sm font-medium text-muted-foreground">Username</label>
                 <GlassInputWrapper>
@@ -69,8 +78,26 @@ export const SignInPage: React.FC<SignInPageProps> = ({
                 </GlassInputWrapper>
               </div>
 
+              {/* Cloudflare Turnstile Captcha */}
+              <div className="animate-element animate-delay-500">
+                <Turnstile
+                  siteKey={import.meta.env.VITE_TURNSTILE_SITE_KEY}
+                  onSuccess={(token) => setCaptchaToken(token)}
+                  onError={() => setCaptchaToken(null)}
+                  onExpire={() => setCaptchaToken(null)}
+                  options={{
+                    theme: 'light',
+                    size: 'flexible',
+                  }}
+                />
+              </div>
+
               <div className="pt-2">
-                <button type="submit" className="animate-element animate-delay-600 w-full rounded-2xl bg-primary py-4 font-medium text-primary-foreground hover:bg-primary/90 transition-colors">
+                <button 
+                  type="submit" 
+                  disabled={!captchaToken}
+                  className="animate-element animate-delay-600 w-full rounded-2xl bg-primary py-4 font-medium text-primary-foreground hover:bg-primary/90 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
                   Login
                 </button>
               </div>
