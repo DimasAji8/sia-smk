@@ -15,11 +15,11 @@ const Login = () => {
     <SignInPage
       title={
         <span className="font-light text-foreground tracking-tighter">
-          SIA SMK Sasmita Jaya 1
+         Selamat Datang di SIVIA ,
         </span>
       }
-      description="Masuk ke sistem informasi akademik untuk mengelola data sekolah"
-      heroImageSrc="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?q=80&w=2070"
+      description="Sistem Informasi dengan Visi Akademik"
+      heroImageSrc="/images/assets/login.jpeg"
       onSignIn={handleSignIn}
     />
   );
