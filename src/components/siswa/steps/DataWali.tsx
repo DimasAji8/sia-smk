@@ -83,7 +83,7 @@ export function DataWali({ formData, updateFormData }: DataWaliProps) {
         <h3 className="text-lg font-semibold mb-4">Alamat Wali</h3>
       </div>
 
-      {/* Alamat Wali */}
+    {/* Alamat Wali */}
       <div className="space-y-2">
         <Label htmlFor="alamatWali">Alamat Lengkap</Label>
         <Textarea
@@ -95,7 +95,7 @@ export function DataWali({ formData, updateFormData }: DataWaliProps) {
         />
       </div>
 
-      {/* Provinsi & Kabupaten */}
+      {/* Provinsi & Kecamatan */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="provinsiWali">Provinsi</Label>
@@ -116,19 +116,6 @@ export function DataWali({ formData, updateFormData }: DataWaliProps) {
           </Select>
         </div>
         <div className="space-y-2">
-          <Label htmlFor="kabupatenWali">Kabupaten/Kota</Label>
-          <Input
-            id="kabupatenWali"
-            placeholder="Masukkan Kabupaten/Kota"
-            value={formData.kabupatenWali}
-            onChange={(e) => updateFormData({ kabupatenWali: e.target.value })}
-          />
-        </div>
-      </div>
-
-      {/* Kecamatan & Kelurahan */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
           <Label htmlFor="kecamatanWali">Kecamatan</Label>
           <Input
             id="kecamatanWali"
@@ -137,6 +124,19 @@ export function DataWali({ formData, updateFormData }: DataWaliProps) {
             onChange={(e) =>
               updateFormData({ kecamatanWali: e.target.value })
             }
+          />
+        </div>
+      </div>
+
+      {/* Kabupaten & Kelurahan */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
+          <Label htmlFor="kabupatenWali">Kabupaten/Kota</Label>
+          <Input
+            id="kabupatenWali"
+            placeholder="Masukkan Kabupaten/Kota"
+            value={formData.kabupatenWali}
+            onChange={(e) => updateFormData({ kabupatenWali: e.target.value })}
           />
         </div>
         <div className="space-y-2">
@@ -151,6 +151,7 @@ export function DataWali({ formData, updateFormData }: DataWaliProps) {
           />
         </div>
       </div>
+
 
       {/* Kode Pos, RT, RW */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">

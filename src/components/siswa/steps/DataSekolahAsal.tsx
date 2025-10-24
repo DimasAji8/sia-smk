@@ -89,7 +89,7 @@ export function DataSekolahAsal({
         />
       </div>
 
-      {/* Provinsi & Kabupaten Sekolah */}
+      {/* Provinsi & Kecamatan Sekolah */}
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="space-y-2">
           <Label htmlFor="provinsiSekolah">
@@ -112,6 +112,24 @@ export function DataSekolahAsal({
           </Select>
         </div>
         <div className="space-y-2">
+          <Label htmlFor="kecamatanSekolah">
+            Kecamatan <span className="text-red-500">*</span>
+          </Label>
+          <Input
+            id="kecamatanSekolah"
+            placeholder="Masukkan Kecamatan"
+            value={formData.kecamatanSekolah}
+            onChange={(e) =>
+              updateFormData({ kecamatanSekolah: e.target.value })
+            }
+            required
+          />
+        </div>
+      </div>
+
+      {/* Kabupaten & Kelurahan Sekolah */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="space-y-2">
           <Label htmlFor="kabupatenSekolah">
             Kabupaten/Kota <span className="text-red-500">*</span>
           </Label>
@@ -123,21 +141,6 @@ export function DataSekolahAsal({
               updateFormData({ kabupatenSekolah: e.target.value })
             }
             required
-          />
-        </div>
-      </div>
-
-      {/* Kecamatan & Kelurahan Sekolah */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="kecamatanSekolah">Kecamatan</Label>
-          <Input
-            id="kecamatanSekolah"
-            placeholder="Masukkan Kecamatan"
-            value={formData.kecamatanSekolah}
-            onChange={(e) =>
-              updateFormData({ kecamatanSekolah: e.target.value })
-            }
           />
         </div>
         <div className="space-y-2">

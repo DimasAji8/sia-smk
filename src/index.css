@@ -27,11 +27,11 @@
        #B8E0F6 - Light Blue (Active/Hover)
        #F5F7FA - Light Gray (Main Background)
        #F8FAFB - Off-White Text */
-    
+
     /* Background & Base */
     --background: 30 20% 99%;            /* Warm white background */
     --foreground: 222 47% 11%;           /* #0F172A - Dark slate text */
-    
+
     /* Sidebar - Modern White/Light Blue */
     --sidebar: 30 20% 99%;               /* Same as background */
     --sidebar-foreground: 240 5.3% 26.1%;   /* #0F172A - Dark text */
@@ -39,43 +39,43 @@
     --sidebar-hover: 217 91% 95%;        /* #EEF4FF - Light blue hover */
     --sidebar-active: 217 91% 35%;       /* Dark navy active */
     --sidebar-active-bg: 217 91% 95%;    /* Light blue bg */
-    
+
     /* Primary - Dark Navy Blue */
     --primary: 217 91% 35%;              /* Navy blue - darker */
     --primary-hover: 217 91% 28%;        /* Even darker on hover */
     --primary-foreground: 0 0% 100%;     /* White text */
     --primary-light: 217 91% 95%;        /* Light blue bg */
-    
+
     /* Secondary - Navy */
     --secondary: 210 22% 24%;            /* #2C3E50 - Dark navy */
     --secondary-hover: 210 22% 20%;      /* Darker navy */
     --secondary-foreground: 0 0% 100%;   /* White text */
-    
+
     /* Accent - Modern Blue */
     --accent: 217 91% 95%;               /* #EEF4FF - Very light blue */
     --accent-light: 217 91% 98%;         /* Almost white blue hover bg */
     --accent-foreground: 217 91% 60%;    /* Modern blue text */
-    
+
     /* Header - Clean with accent */
     --header: 0 0% 100%;                 /* #FFFFFF - White header */
     --header-foreground: 210 17% 20%;    /* Dark text */
-    
+
     /* Neutral Elements */
     --card: 30 20% 99.5%;                /* Warm white cards */
     --card-foreground: 222 47% 11%;      /* Dark slate text */
     --muted: 30 20% 96%;                 /* Warm muted bg */
     --muted-foreground: 215 16% 47%;     /* #64748B - Muted slate */
-    
+
     /* Borders & Inputs */
     --border: 30 20% 90%;                /* Warm border */
     --input: 30 20% 99%;                 /* Warm input bg */
     --input-border: 30 20% 88%;          /* Warm input border */
     --ring: 217 91% 60%;                 /* Focus ring = modern blue */
-    
+
     /* Popover & Dropdown */
     --popover: 0 0% 100%;
     --popover-foreground: 220 26% 14%;   /* Charcoal */
-    
+
     /* Status Colors */
     --success: 142 76% 36%;              /* #16A34A - Green */
     --success-light: 142 76% 95%;        /* Light green bg */
@@ -85,7 +85,7 @@
     --error-light: 0 84% 95%;            /* Light red bg */
     --info: 217 91% 60%;                 /* #4F7FFF - Modern blue */
     --info-light: 217 91% 95%;           /* Light blue bg */
-    
+
     /* Radius */
     --radius: 1rem;                      /* 16px - More rounded for modern look */
     --sidebar-background: 30 20% 99%;    /* Warm white sidebar matching background */
@@ -100,23 +100,23 @@
   .dark {
     --background: 222.2 84% 4.9%;        /* Very dark - matching main content */
     --foreground: 210 40% 98%;           /* Light text */
-    
+
     --sidebar: 222.2 84% 4.9%;           /* Same as background */
     --sidebar-foreground: 210 40% 98%;
     --sidebar-border: 217.2 32.6% 17.5%;
     --sidebar-hover: 217.2 32.6% 17.5%;  /* Subtle hover */
     --sidebar-active: 217 91% 60%;       /* Modern blue active */
     --sidebar-active-bg: 217.2 32.6% 17.5%;
-    
+
     --primary: 217 91% 60%;              /* #4F7FFF - Modern blue */
     --primary-hover: 217 91% 55%;
     --primary-foreground: 0 0% 100%;
-    
+
     --card: 222.2 84% 4.9%;
     --card-foreground: 210 40% 98%;
     --muted: 217.2 32.6% 17.5%;
     --muted-foreground: 215 20.2% 65.1%;
-    
+
     --border: 217.2 32.6% 17.5%;
     --input: 217.2 32.6% 17.5%;
     --ring: 217 91% 60%;
@@ -134,7 +134,7 @@
   * {
     @apply border-border;
   }
-  
+
   body {
     @apply bg-background text-foreground;
     /* Force block layout - override Vite defaults */
@@ -143,21 +143,21 @@
     padding: 0;
     min-height: 100vh;
   }
-  
+
   /* Reset root container */
   #root {
     display: block;
     width: 100%;
     min-height: 100vh;
   }
-  
+
   /* ===== Smooth Transitions (excluding Radix Portal elements & Sidebar) ===== */
   *:not([data-radix-popper-content-wrapper]):not([data-radix-select-content]):not([data-radix-dropdown-menu-content]):not([data-radix-dialog-content]):not([data-radix-collapsible-content]):not(.sidebar):not(.sidebar *):not([data-sidebar]):not([data-sidebar] *) {
     transition-property: background-color, border-color, color, box-shadow;
     transition-duration: 150ms;
     transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
   }
-  
+
   /* Add transform transition for specific interactive elements (excluding sidebar) */
   .card,
   button,
@@ -179,51 +179,51 @@
     background: hsl(var(--header));
     color: hsl(var(--header-foreground));
   }
-  
+
   /* Section background */
   .section-bg {
     @apply bg-muted;
   }
-  
+
   /* Text Colors */
   .text-primary {
     color: hsl(var(--primary));
   }
-  
+
   .text-secondary {
     color: hsl(var(--secondary));
   }
-  
+
   .text-accent {
     color: hsl(var(--accent));
   }
-  
+
   .text-muted {
     color: hsl(var(--muted-foreground));
   }
-  
+
   /* Background Colors */
   .bg-primary {
     background: hsl(var(--primary));
   }
-  
+
   .bg-secondary {
     background: hsl(var(--secondary));
   }
-  
+
   .bg-accent {
     background: hsl(var(--accent));
   }
-  
+
   /* Gradient Accents */
   .gradient-primary {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
   }
-  
+
   .gradient-accent {
     background: linear-gradient(135deg, hsl(var(--secondary)) 0%, hsl(var(--accent)) 100%);
   }
-  
+
   /* Text Gradients */
   .text-gradient-primary {
     background: linear-gradient(135deg, hsl(var(--primary)) 0%, hsl(var(--secondary)) 100%);
@@ -262,20 +262,44 @@
   .no-print {
     display: none !important;
   }
-  
+
   body {
     print-color-adjust: exact;
     -webkit-print-color-adjust: exact;
   }
-  
+
   main {
     padding: 0 !important;
     margin: 0 !important;
     width: 100% !important;
   }
-  
+
   .card {
     box-shadow: none !important;
     border: 1px solid #ddd !important;
+  }
+}
+
+@theme inline {
+  @keyframes fadeSlideIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px);
+    }
+  }
+  @keyframes slideRightIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateX(0px);
+    }
+  }
+  @keyframes testimonialIn {
+  to {
+    opacity: 1;
+    filter: blur(0px);
+    transform: translateY(0px) scale(1);
+    }
   }
 }

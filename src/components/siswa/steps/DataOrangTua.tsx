@@ -259,7 +259,7 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
         </div>
       </div>
 
-      {/* Alamat Orang Tua */}
+     {/* Alamat Orang Tua */}
       <div>
         <div className="flex items-center justify-between mb-4">
           <h3 className="text-lg font-semibold">Alamat Orang Tua</h3>
@@ -296,6 +296,7 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
             />
           </div>
 
+          {/* Provinsi & Kecamatan */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="provinsiOrangTua">
@@ -321,6 +322,25 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
               </Select>
             </div>
             <div className="space-y-2">
+              <Label htmlFor="kecamatanOrangTua">
+                Kecamatan <span className="text-red-500">*</span>
+              </Label>
+              <Input
+                id="kecamatanOrangTua"
+                placeholder="Masukkan Kecamatan"
+                value={formData.kecamatanOrangTua}
+                onChange={(e) =>
+                  updateFormData({ kecamatanOrangTua: e.target.value })
+                }
+                disabled={formData.alamatSamaDenganSiswa}
+                required
+              />
+            </div>
+          </div>
+
+          {/* Kabupaten & Kelurahan */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div className="space-y-2">
               <Label htmlFor="kabupatenOrangTua">
                 Kabupaten/Kota <span className="text-red-500">*</span>
               </Label>
@@ -333,21 +353,6 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
                 }
                 disabled={formData.alamatSamaDenganSiswa}
                 required
-              />
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            <div className="space-y-2">
-              <Label htmlFor="kecamatanOrangTua">Kecamatan</Label>
-              <Input
-                id="kecamatanOrangTua"
-                placeholder="Masukkan Kecamatan"
-                value={formData.kecamatanOrangTua}
-                onChange={(e) =>
-                  updateFormData({ kecamatanOrangTua: e.target.value })
-                }
-                disabled={formData.alamatSamaDenganSiswa}
               />
             </div>
             <div className="space-y-2">
@@ -364,6 +369,7 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
             </div>
           </div>
 
+          {/* Kode Pos, RT, RW */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="space-y-2">
               <Label htmlFor="kodePosOrangTua">Kode Pos</Label>
@@ -403,6 +409,7 @@ export function DataOrangTua({ formData, updateFormData }: DataOrangTuaProps) {
             </div>
           </div>
 
+          {/* Nomor HP & Telepon */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
             <div className="space-y-2">
               <Label htmlFor="nomorHpOrangTua">

@@ -81,7 +81,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           Identitas Siswa
         </h3>
         
-        {/* Nama Lengkap */}
+        {/* Nama Lengkap - Solo */}
         <div className="space-y-2">
           <Label htmlFor="namaLengkap">
             Nama Lengkap <span className="text-red-500">*</span>
@@ -95,7 +95,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           />
         </div>
 
-        {/* NIK & NISN */}
+        {/* NIK & NISN - 2 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="nik">
@@ -110,6 +110,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
               required
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="nisn">
               NISN <span className="text-red-500">*</span>
@@ -124,7 +125,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           </div>
         </div>
 
-        {/* Tempat Lahir & Tanggal Lahir */}
+        {/* Tempat Lahir & Tanggal Lahir - 2 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="tempatLahir">
@@ -138,6 +139,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
               required
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="tanggalLahir">
               Tanggal Lahir <span className="text-red-500">*</span>
@@ -152,7 +154,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           </div>
         </div>
 
-        {/* Jenis Kelamin & Agama */}
+        {/* Jenis Kelamin & Agama - 2 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="jenisKelamin">
@@ -174,6 +176,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
               </SelectContent>
             </Select>
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="agama">
               Agama <span className="text-red-500">*</span>
@@ -196,7 +199,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           </div>
         </div>
 
-        {/* Email, Nomor HP, Nomor Telepon */}
+        {/* Email, Nomor HP, Nomor Telepon - 3 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
             <Label htmlFor="email">
@@ -211,6 +214,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
               required
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="nomorHp">
               Nomor HP <span className="text-red-500">*</span>
@@ -224,12 +228,13 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
               required
             />
           </div>
+
           <div className="space-y-2">
             <Label htmlFor="nomorTelepon">Nomor Telepon</Label>
             <Input
               id="nomorTelepon"
               type="tel"
-              placeholder="021xxxxxxx"
+              placeholder="021xxxxxxx (opsional)"
               value={formData.nomorTelepon || ""}
               onChange={(e) => updateFormData({ nomorTelepon: e.target.value })}
             />
@@ -243,7 +248,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           Alamat Tempat Tinggal
         </h3>
 
-        {/* Alamat Lengkap */}
+        {/* Alamat Lengkap - Full Width */}
         <div className="space-y-2">
           <Label htmlFor="alamatLengkap">
             Alamat Lengkap <span className="text-red-500">*</span>
@@ -257,7 +262,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           />
         </div>
 
-        {/* Provinsi */}
+        {/* Provinsi - Full Width */}
         <div className="space-y-2">
           <Label htmlFor="provinsi">
             Provinsi <span className="text-red-500">*</span>
@@ -279,7 +284,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           </Select>
         </div>
 
-        {/* Kabupaten/Kota */}
+        {/* Kabupaten/Kota - Full Width */}
         <div className="space-y-2">
           <Label htmlFor="kabupaten">
             Kabupaten/Kota <span className="text-red-500">*</span>
@@ -293,7 +298,7 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           />
         </div>
 
-        {/* Grid untuk Kecamatan & Kelurahan (berdampingan) */}
+        {/* Kecamatan & Kelurahan - 2 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <div className="space-y-2">
             <Label htmlFor="kecamatan">
@@ -321,26 +326,24 @@ export function DataDiriSiswa({ formData, updateFormData }: DataDiriSiswaProps) 
           </div>
         </div>
 
-        {/* Grid untuk RT, RW, Kode Pos (berdampingan) */}
+        {/* RT, RW, Kode Pos - 3 Kolom */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
           <div className="space-y-2">
-            <Label htmlFor="rt">RT <span className="text-red-500">*</span></Label>
+            <Label htmlFor="rt">RT</Label>
             <Input
               id="rt"
               placeholder="RT"
               value={formData.rt}
               onChange={(e) => updateFormData({ rt: e.target.value })}
-              required
             />
           </div>
           <div className="space-y-2">
-            <Label htmlFor="rw">RW <span className="text-red-500">*</span></Label>
+            <Label htmlFor="rw">RW</Label>
             <Input
               id="rw"
               placeholder="RW"
               value={formData.rw}
               onChange={(e) => updateFormData({ rw: e.target.value })}
-              required
             />
           </div>
           <div className="space-y-2">
