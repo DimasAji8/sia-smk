@@ -30,11 +30,11 @@
 
     /* Background & Base */
     --background: 30 20% 99%;            /* Warm white background */
-    --foreground: 222 47% 11%;           /* #0F172A - Dark slate text */
+    --foreground: 222 47% 25%;           /* Softer dark gray text - not pure black */
 
     /* Sidebar - Modern White/Light Blue */
     --sidebar: 30 20% 99%;               /* Same as background */
-    --sidebar-foreground: 240 5.3% 26.1%;   /* #0F172A - Dark text */
+    --sidebar-foreground: 222 47% 30%;   /* Softer dark text */
     --sidebar-border: 30 20% 90%;        /* Warm border */
     --sidebar-hover: 217 91% 95%;        /* #EEF4FF - Light blue hover */
     --sidebar-active: 217 91% 35%;       /* Dark navy active */
@@ -58,11 +58,11 @@
 
     /* Header - Clean with accent */
     --header: 0 0% 100%;                 /* #FFFFFF - White header */
-    --header-foreground: 210 17% 20%;    /* Dark text */
+    --header-foreground: 222 47% 30%;    /* Softer dark text */
 
     /* Neutral Elements */
     --card: 30 20% 99.5%;                /* Warm white cards */
-    --card-foreground: 222 47% 11%;      /* Dark slate text */
+    --card-foreground: 222 47% 25%;      /* Softer dark text */
     --muted: 30 20% 96%;                 /* Warm muted bg */
     --muted-foreground: 215 16% 47%;     /* #64748B - Muted slate */
 
@@ -74,7 +74,7 @@
 
     /* Popover & Dropdown */
     --popover: 0 0% 100%;
-    --popover-foreground: 220 26% 14%;   /* Charcoal */
+    --popover-foreground: 222 47% 30%;   /* Softer charcoal */
 
     /* Status Colors */
     --success: 142 76% 36%;              /* #16A34A - Green */
