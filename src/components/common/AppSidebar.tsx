@@ -116,15 +116,30 @@ export function AppSidebar() {
   return (
     <Sidebar collapsible="icon" className="sidebar">
       <SidebarHeader className="border-b border-sidebar-border">
-        <div className="flex items-center gap-3 p-4 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2">
-          <img
-            src="/images/logo/smk1.png"
-            alt="Logo SMK"
-            className="h-10 w-10 rounded-lg object-cover transition-all flex-shrink-0 group-data-[collapsible=icon]:h-8 group-data-[collapsible=icon]:w-8"
-          />
-          <span className="text-sm leading-tight group-data-[collapsible=icon]:hidden">
-            SMK SASMITA JAYA 1
-          </span>
+        <div className="flex items-center justify-start gap-3 p-4 transition-all duration-300 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2 group-data-[collapsible=icon]:gap-0">
+          <div className="flex items-center justify-center flex-shrink-0 w-12 transition-all duration-300">
+            <img
+              src="/images/logo/sivia-light.png"
+              alt="Logo SIVIA"
+              className="h-12 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-8 dark:hidden"
+            />
+            <img
+              src="/images/logo/sivia-dark.png"
+              alt="Logo SIVIA"
+              className="h-12 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-8 hidden dark:block"
+            />
+          </div>
+          <div className="flex flex-col transition-all duration-300 group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:opacity-0 group-data-[collapsible=icon]:w-0 overflow-hidden">
+            <span className="text-2xl font-bold leading-tight whitespace-nowrap">
+              SIVIA
+            </span>
+            <span className="text-[12px] leading-tight text-muted-foreground whitespace-nowrap">
+              Sistem Informasi &
+            </span>
+            <span className="text-[11px] leading-tight text-muted-foreground whitespace-nowrap">
+              Visualisasi Data Akademik
+            </span>
+          </div>
         </div>
       </SidebarHeader>
 
