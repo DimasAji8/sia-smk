@@ -113,10 +113,10 @@ export default function DataSiswa() {
 
       <Card>
         <CardHeader>
-          <CardTitle className="text-xl">Filter Data Siswa</CardTitle>
+          {/* <CardTitle className="text-xl">Filter Data Siswa</CardTitle>
           <CardDescription className="text-base">
             Gunakan filter untuk mencari siswa
-          </CardDescription>
+          </CardDescription> */}
         </CardHeader>
         <CardContent>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

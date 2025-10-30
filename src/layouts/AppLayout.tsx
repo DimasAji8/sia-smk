@@ -24,24 +24,43 @@ export function AppLayout() {
       <AppSidebar />
       <SidebarInset>
         {/* Top Navigation - MENGIKUTI PATTERN RESMI SHADCN */}
-        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] duration-200 ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-12">
-          <div className="flex items-center gap-2 px-4">
-            <SidebarTrigger className="-ml-1" />
-            <Separator orientation="vertical" className="mr-2 h-4" />
-            <p className="text-sm">
+        <header className="flex h-16 shrink-0 items-center gap-2 transition-[width,height] duration-200 ease-linear group-has-[[data-collapsible=icon]]/sidebar-wrapper:h-16">
+          <div className="flex items-center gap-3 px-4 min-w-0 transition-all duration-300">
+            <SidebarTrigger className="flex-shrink-0 h-9 w-9 border border-border rounded-sm hover:bg-accent hover:text-accent-foreground data-[state=open]:bg-accent" />
+            <Separator orientation="vertical" className="h-4 flex-shrink-0" />
+            <div className="flex items-center gap-3 min-w-0">
+              <img
+                src="/images/logo/smk1.png"
+                alt="Logo SMK"
+                className="h-7 w-auto object-contain flex-shrink-0 dark:hidden"
+              />
+              <img
+                src="/images/logo/smk1.png"
+                alt="Logo SMK"
+                className="h-8 w-auto object-contain flex-shrink-0 hidden dark:block"
+              />
+              <div className="flex flex-col min-w-0">
+                <span className="text-sm font-bold leading-tight whitespace-nowrap">SMK SASMITA JAYA 1</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Center - Date */}
+          <div className="flex-1 flex justify-center items-center px-4">
+            <p className="text-sm font-medium whitespace-nowrap">
               {getCurrentDate()}
             </p>
           </div>
 
           {/* Right Side Actions */}
-          <div className="ml-auto flex items-center gap-4 px-4">
+          <div className="flex items-center gap-4 px-4 flex-shrink-0">
             {/* Search Bar */}
             <div className="relative w-64">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
                 type="search"
                 placeholder="Search..."
-                className="pl-9 bg-white/50 border-border focus-visible:ring-primary"
+                className="pl-9 bg-background/50 dark:bg-sidebar-accent border-border focus-visible:ring-primary"
               />
             </div>
 

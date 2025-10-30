@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import {
   LayoutDashboard,
   Users,
@@ -28,12 +28,21 @@ import {
   SidebarMenuSub,
   SidebarMenuSubButton,
   SidebarMenuSubItem,
+  useSidebar,
 } from "../ui/sidebar";
 import {
   Collapsible,
   CollapsibleContent,
   CollapsibleTrigger,
 } from "../ui/collapsible";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "../ui/dropdown-menu";
 
 const menuItems = [
   {
@@ -113,20 +122,35 @@ const menuItems = [
 ];
 
 export function AppSidebar() {
+  const { state } = useSidebar();
+  const location = useLocation();
+  const isCollapsed = state === "collapsed";
+
+  // Helper function to check if a route is active
+  const isActiveRoute = (href: string) => {
+    return location.pathname === href || location.pathname.startsWith(href + '/');
+  };
+
+  // Helper function to check if any submenu is active
+  const hasActiveSubmenu = (items: typeof menuItems[0]['items']) => {
+    if (!items) return false;
+    return items.some(subItem => isActiveRoute(subItem.href));
+  };
+
   return (
     <Sidebar collapsible="icon" className="sidebar">
       <SidebarHeader className="border-b border-sidebar-border">
         <div className="flex items-center justify-start gap-3 p-4 transition-all duration-300 group-data-[collapsible=icon]:justify-center group-data-[collapsible=icon]:p-2 group-data-[collapsible=icon]:gap-0">
-          <div className="flex items-center justify-center flex-shrink-0 w-12 transition-all duration-300">
+          <div className="flex items-center justify-center flex-shrink-0 w-10 transition-all duration-300">
             <img
               src="/images/logo/sivia-light.png"
               alt="Logo SIVIA"
-              className="h-12 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-8 dark:hidden"
+              className="h-10 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-7 dark:hidden"
             />
             <img
               src="/images/logo/sivia-dark.png"
               alt="Logo SIVIA"
-              className="h-12 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-8 hidden dark:block"
+              className="h-10 w-auto max-w-full object-contain transition-all duration-300 group-data-[collapsible=icon]:h-7 hidden dark:block"
             />
           </div>
           <div className="flex flex-col transition-all duration-300 group-data-[collapsible=icon]:hidden group-data-[collapsible=icon]:opacity-0 group-data-[collapsible=icon]:w-0 overflow-hidden">
@@ -151,38 +175,80 @@ export function AppSidebar() {
               {menuItems.map((item) => {
                 // Menu dengan submenu
                 if (item.items && item.items.length > 0) {
+                  const hasActive = hasActiveSubmenu(item.items);
+                  
                   return (
                     <Collapsible key={item.title} asChild defaultOpen className="group/collapsible">
                       <SidebarMenuItem>
-                        <CollapsibleTrigger asChild>
-                          <SidebarMenuButton tooltip={item.title}>
-                            {item.icon && <item.icon />}
-                            <span>{item.title}</span>
-                            <ChevronRight className="ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90" />
-                          </SidebarMenuButton>
-                        </CollapsibleTrigger>
-                        <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
-                          <SidebarMenuSub>
-                            {item.items.map((subItem) => (
-                              <SidebarMenuSubItem key={subItem.title}>
-                                <SidebarMenuSubButton asChild>
-                                  <Link to={subItem.href}>
+                        {isCollapsed ? (
+                          <DropdownMenu>
+                            <DropdownMenuTrigger asChild>
+                              <SidebarMenuButton 
+                                tooltip={!hasActive ? item.title : undefined}
+                                isActive={hasActive}
+                              >
+                                {item.icon && <item.icon />}
+                                <span>{item.title}</span>
+                              </SidebarMenuButton>
+                            </DropdownMenuTrigger>
+                            <DropdownMenuContent 
+                              side="right" 
+                              align="start"
+                              className="w-48"
+                            >
+                              <DropdownMenuLabel>{item.title}</DropdownMenuLabel>
+                              <DropdownMenuSeparator className="bg-border dark:bg-muted-foreground/20 h-[2px]" />
+                              {item.items.map((subItem) => (
+                                <DropdownMenuItem key={subItem.title} asChild>
+                                  <Link to={subItem.href} className="cursor-pointer">
                                     <span>{subItem.title}</span>
                                   </Link>
-                                </SidebarMenuSubButton>
-                              </SidebarMenuSubItem>
-                            ))}
-                          </SidebarMenuSub>
-                        </CollapsibleContent>
+                                </DropdownMenuItem>
+                              ))}
+                            </DropdownMenuContent>
+                          </DropdownMenu>
+                        ) : (
+                          <>
+                            <CollapsibleTrigger asChild>
+                              <SidebarMenuButton 
+                                tooltip={!hasActive ? item.title : undefined}
+                                isActive={hasActive}
+                              >
+                                {item.icon && <item.icon />}
+                                <span>{item.title}</span>
+                                <ChevronRight className="ml-auto transition-transform duration-300 group-data-[state=open]/collapsible:rotate-90" />
+                              </SidebarMenuButton>
+                            </CollapsibleTrigger>
+                            <CollapsibleContent className="overflow-hidden data-[state=closed]:animate-accordion-up data-[state=open]:animate-accordion-down">
+                              <SidebarMenuSub>
+                                {item.items.map((subItem) => (
+                                  <SidebarMenuSubItem key={subItem.title}>
+                                    <SidebarMenuSubButton asChild isActive={isActiveRoute(subItem.href)}>
+                                      <Link to={subItem.href}>
+                                        <span>{subItem.title}</span>
+                                      </Link>
+                                    </SidebarMenuSubButton>
+                                  </SidebarMenuSubItem>
+                                ))}
+                              </SidebarMenuSub>
+                            </CollapsibleContent>
+                          </>
+                        )}
                       </SidebarMenuItem>
                     </Collapsible>
                   );
                 }
 
                 // Menu tanpa submenu
+                const isActive = item.href ? isActiveRoute(item.href) : false;
+                
                 return (
                   <SidebarMenuItem key={item.title}>
-                    <SidebarMenuButton asChild tooltip={item.title}>
+                    <SidebarMenuButton 
+                      asChild 
+                      tooltip={!isActive ? item.title : undefined}
+                      isActive={isActive}
+                    >
                       <Link to={item.href!}>
                         {item.icon && <item.icon />}
                         <span>{item.title}</span>
@@ -199,7 +265,11 @@ export function AppSidebar() {
       <SidebarFooter className="border-t border-sidebar-border">
         <SidebarMenu>
           <SidebarMenuItem>
-            <SidebarMenuButton asChild tooltip="Pengaturan">
+            <SidebarMenuButton 
+              asChild 
+              tooltip={!isActiveRoute('/settings') ? "Pengaturan" : undefined}
+              isActive={isActiveRoute('/settings')}
+            >
               <Link to="/settings">
                 <Settings />
                 <span>Pengaturan</span>

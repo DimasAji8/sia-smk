@@ -35,7 +35,8 @@ const Login = () => {
         </span>
       }
       description="Sistem Informasi dan Visualisasi Data Akademik"
-      heroImageSrc="/images/assets/login.jpeg"
+  // use SVG hero if available
+  heroImageSrc="/images/assets/login.jpeg"
       onSignIn={handleSignIn}
     />
   );

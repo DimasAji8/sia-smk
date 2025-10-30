@@ -98,32 +98,42 @@
 
   /* Dark Mode */
   .dark {
-    --background: 222.2 84% 4.9%;        /* Very dark - matching main content */
-    --foreground: 210 40% 98%;           /* Light text */
+    --background: 222.2 47% 11%;        /* Dark navy background - lebih terang */
+    --foreground: 210 40% 98%;          /* Bright text */
 
-    --sidebar: 222.2 84% 4.9%;           /* Same as background */
-    --sidebar-foreground: 210 40% 98%;
-    --sidebar-border: 217.2 32.6% 17.5%;
-    --sidebar-hover: 217.2 32.6% 17.5%;  /* Subtle hover */
-    --sidebar-active: 217 91% 60%;       /* Modern blue active */
-    --sidebar-active-bg: 217.2 32.6% 17.5%;
+    --sidebar: 222.2 47% 11%;           /* Same as background */
+    --sidebar-foreground: 210 40% 98%;  /* Bright text */
+    --sidebar-border: 217.2 32.6% 17.5%; /* Subtle border */
+    --sidebar-hover: 217.2 32.6% 17.5%; /* Subtle hover */
+    --sidebar-active: 217 91% 60%;      /* Modern blue active */
+    --sidebar-active-bg: 217.2 32.6% 17.5%; /* Subtle hover bg */
 
-    --primary: 217 91% 60%;              /* #4F7FFF - Modern blue */
+    --primary: 217 91% 60%;             /* #4F7FFF - Modern blue */
     --primary-hover: 217 91% 55%;
     --primary-foreground: 0 0% 100%;
 
-    --card: 222.2 84% 4.9%;
-    --card-foreground: 210 40% 98%;
-    --muted: 217.2 32.6% 17.5%;
-    --muted-foreground: 215 20.2% 65.1%;
+    --card: 222.2 47% 11%;              /* Dark card - same as bg */
+    --card-foreground: 210 40% 98%;     /* Bright text */
+    --muted: 217.2 32.6% 17.5%;         /* Muted bg */
+    --muted-foreground: 215 20.2% 65.1%; /* Muted text */
 
-    --border: 217.2 32.6% 17.5%;
-    --input: 217.2 32.6% 17.5%;
+    --popover: 222.2 47% 11%;           /* Dark popover */
+    --popover-foreground: 210 40% 98%;  /* Bright text */
+
+    --border: 217.2 32.6% 17.5%;        /* Border */
+    --input: 217.2 32.6% 17.5%;         /* Input bg */
     --ring: 217 91% 60%;
-    --sidebar-background: 222.2 84% 4.9%;
+    
+    --accent: 217.2 32.6% 17.5%;        /* Accent bg */
+    --accent-foreground: 210 40% 98%;   /* Accent text */
+    
+    --destructive: 0 62.8% 30.6%;       /* Destructive */
+    --destructive-foreground: 210 40% 98%;
+
+    --sidebar-background: 222.2 47% 11%; /* Same as background */
     --sidebar-primary: 217 91% 60%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 217.2 32.6% 17.5%;
+    --sidebar-accent: 217.2 32.6% 17.5%; /* Subtle accent */
     --sidebar-accent-foreground: 210 40% 98%;
     --sidebar-ring: 217 91% 60%;
   }
