@@ -45,12 +45,13 @@ export const SignInPage: React.FC<SignInPageProps> = ({
       <section className="md:w-[30%] flex items-center justify-center p-8">
         <div className="w-full max-w-md">
           <div className="flex flex-col gap-4">
-          {/* Logo Section */}
-            <div className="flex items-center justify-center gap-4 mb-6">
-              <img src="/images/logo/sasmita.png" alt="Logo yayasan" className="h-[7.2rem] w-[7.2rem] object-contain" />
-              <div className="h-[4.5rem] w-[2px] bg-border mx-2"></div>
-              <img src="/images/logo/smk1.png" alt="Logo Sekolah" className="h-[5.5rem] w-[5.5rem] object-contain" />
-              <img src="/images/logo/smk2.png" alt="Logo SMK" className="h-[5.5rem] w-[5.5rem] object-contain ml-2" />
+            {/* Logo Section - left aligned and compact */}
+            <div className="flex items-center justify-start gap-4 mb-4">
+              {/* Compact sizes to stay within title boundary */}
+              <img src="/images/logo/sasmita.png" alt="Logo yayasan" className="h-16 w-auto object-contain" />
+              <div className="h-16 w-[2px] bg-border mx-1"></div>
+              <img src="/images/logo/smk1.png" alt="Logo Sekolah" className="h-16 w-auto object-contain" />
+              <img src="/images/logo/smk2.png" alt="Logo SMK" className="h-16 w-auto object-contain ml-1" />
             </div>
 
 

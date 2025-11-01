@@ -262,7 +262,7 @@ export function AppSidebar() {
         </SidebarGroup>
       </SidebarContent>
 
-      <SidebarFooter className="border-t border-sidebar-border">
+      <SidebarFooter className="border-t border-sidebar-border mt-auto">
         <SidebarMenu>
           <SidebarMenuItem>
             <SidebarMenuButton 
